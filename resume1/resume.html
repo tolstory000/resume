@@ -20,7 +20,7 @@
   <div id='siteWelcome' class="site-welcome active">
     <div class="loading"></div>
   </div>
-	<div class="navbar clearfix">
+	<div id='topNavbar' class="navbar clearfix ">
 		<a href="#" class="logo">
 			<span class="RS">RS</span><span class="card">card</span>
 		</a>
@@ -55,9 +55,9 @@
                 <dt>所在城市</dt>
                 <dd>上海</dd>
                 <dt>邮箱</dt>
-                <dd>654494140@qq.com</dd>
+                <dd>xxxx@qq.com</dd>
                 <dt>手机</dt>
-                <dd>15021863069</dd>
+                <dd>15012345678</dd>
               </dl>
             </div>
           </div>
@@ -85,7 +85,7 @@
       </p>
 
       <p class="self-introduction">
-        接触前端已有半年的时间，通过自学已完成一些小项目。
+        Shawn
       </p>
 
     </main>
@@ -171,6 +171,15 @@
       setTimeout(function(){
         siteWelcome.classList.remove('active')
       },2000)
+
+      window.onscroll = function(xxx){
+        if (window.scrollY > 0){
+          topNavbar.classList.add('sticky')
+        }
+        else{
+          topNavbar.classList.remove('sticky')
+        }
+      }
     </script>
   </body>
 </html>
