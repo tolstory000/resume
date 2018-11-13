@@ -28,9 +28,19 @@ h2{
 ul,ol{
 	list-style: none;
 }
+
 .navbar{
 	position: fixed;
 	width: 100%;
+	transition: all 0.5s;
+	z-index:1;
+	color: #b7b7b7;
+}
+.navbar.sticky{
+	background:white;
+	margin: -15px 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	color:#3D4451;
 }
 .navbar>.logo 
 {
@@ -39,20 +49,19 @@ ul,ol{
 	float: left;
 	font-family: 'Arial Black';
 	font-weight: bold;
-	margin-top:24px;
-	margin-left: 18px;
+	margin:24px 0 6px 18px;
 }
 .navbar>ul{
 	float:right;
 	list-style: none;
-	margin-top: 32px;
+	padding-top: 30px;
 }
 .navbar>ul>li{
 	color:rbg(183,183,183);
 	font-size:12px;
 	float:left;
 	margin-right:34px;
-	color:#b7b7b7;
+	color:inherit;
 	font-weight: bolder;
 	padding-bottom: 4px;
 	border-top:3px solid transparent;
