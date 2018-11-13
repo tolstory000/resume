@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-  <title>navbar</title>
-  <link rel="stylesheet" href="./a.css">
+  <title>resume</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./loading.css">
   <script src="./js/iconfont.js"></script>
   <style type="text/css">
     .icon {
@@ -16,6 +17,9 @@
 </head>
 
 <body>
+  <div id='siteWelcome' class="site-welcome active">
+    <div class="loading"></div>
+  </div>
 	<div class="navbar clearfix">
 		<a href="#" class="logo">
 			<span class="RS">RS</span><span class="card">card</span>
@@ -163,5 +167,10 @@
         </div>
       </section>
     </section>
+    <script>
+      setTimeout(function(){
+        siteWelcome.classList.remove('active')
+      },2000)
+    </script>
   </body>
 </html>
