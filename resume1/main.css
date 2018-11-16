@@ -66,10 +66,62 @@ ul,ol{
 	padding-bottom: 4px;
 	border-top:3px solid transparent;
 	border-bottom:3px solid transparent;
+	position: relative;
 }
-.navbar>ul>li:hover{
-	border-bottom: #E06567 3px solid;
+.navbar>ul>li:hover::after{
+	content:'';
+	display: block;
+	top:100%;
+	left:0;
+	width:100%;
+	background:#E6686A;
+	height:3px;
+	margin-top:4px;
+	transition: 1s all;
+	animation:menuSlide 0.3s linear;
 }
+@keyframes menuSlide{
+	0%{
+		width:0px;height:3px;
+	}
+	100%{
+		width:100%;height:3px;
+	}
+}
+
+.navbar .subMenu{
+	display:none;
+	position: absolute;
+	left:-85%;
+	top:100%;
+	background: #fff;
+	padding:10px 20px;
+	color:#3D4451;
+	animation: submenuSlide 0.5s;
+}
+
+/* 子菜单进入 */
+@keyframes submenuSlide{
+	0%{
+		/* margin-right:100%; */
+		transform: translateX(-30%);
+	}
+	100%{
+		transform: translateX(0);
+		/* margin-left:0%; */
+	}
+}
+
+
+.navbar .subMenu li{
+	white-space: nowrap;
+	padding:5px 0;
+}
+
+.navbar .subMenu.active{
+	display: block;
+}
+
 .navbar .card{
 	margin-left: 6px;
 	color:#9A9DA2;

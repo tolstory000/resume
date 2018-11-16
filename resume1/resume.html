@@ -25,20 +25,34 @@
 			<span class="RS">RS</span><span class="card">card</span>
 		</a>
 		<ul>
-			<li><a href="#">关于</a></li>
-			<li><a href="#">技能</a></li>
-			<li><a href="#">作品</a></li>
-			<li><a href="#">博客</a></li>
-			<li><a href="#">日历</a></li>
-			<li><a href="#">联系方式</a></li>
-			<li><a href="#">其他</a></li>
+			<li><a href="#siteAbout">关于</a></li>
+			<li><a href="#siteSkills">技能</a></li>
+      <li class='menuTigger'>
+        <a href="#siteWorks">作品</a>
+        <ul class='subMenu'>
+          <li>作品1</li>
+          <li>作品2</li>
+          <li>作品3</li>
+        </ul>
+      </li>
+      <li class='menuTigger'>
+        <a href="#siteBlog">博客</a>
+        <ul class='subMenu'>
+            <li>博客1</li>
+            <li>博客2</li>
+            <li>博客3</li>
+        </ul>
+      </li>
+			<li><a href="#siteClendar">日历</a></li>
+			<li><a href="#siteContact">联系方式</a></li>
+			<li><a href="#siteOthers">其他</a></li>
 		</ul>
     </div>
     <div class="banner">
       <div class="mask"></div>
     </div>
     <main>
-      <div class="userCard">
+      <div id='siteAbout' class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
             <img src="./img/avatar.jpg" alt="头像">
@@ -89,7 +103,7 @@
       </p>
 
     </main>
-    <section class="skills">
+    <section id='siteSkills' class="skills">
       <h2>技能</h2>
       <ol class="clearfix">
         <li>
@@ -131,7 +145,7 @@
       </ol>
     </section>
     <section>
-      <section class="portfolio">
+      <section id='siteWorks' class="portfolio">
         <h2>作品集</h2>
         <nav>
           <ol class="clearfix">
@@ -168,10 +182,11 @@
       </section>
     </section>
     <script>
+      //加载动画
       setTimeout(function(){
         siteWelcome.classList.remove('active')
-      },2000)
-
+      },1000)
+      //鼠标向下滚动时顶部导航栏发生变化
       window.onscroll = function(xxx){
         if (window.scrollY > 0){
           topNavbar.classList.add('sticky')
@@ -180,6 +195,34 @@
           topNavbar.classList.remove('sticky')
         }
       }
+    
+    //子菜单
+      var liTags = document.getElementsByClassName('menuTigger')
+      for (var i=0;i<liTags.length;i++){
+        liTags[i].onmouseenter = function(x){
+          var li = x.currentTarget;
+          var brother = li.getElementsByTagName('ul')[0];
+          brother.classList.add('active')
+        }
+        liTags[i].onmouseleave = function(x){
+          var li = x.currentTarget;
+          var brother = li.getElementsByTagName('ul')[0];
+          brother.classList.remove('active')
+        }
+      }
+
+    //点击跳转到指定的位置
+    var aTags = document.querySelectorAll('div.navbar.clearfix > ul > li > a');
+    for(var i=0; i<aTags.length;i++){
+      aTags[i].onclick = function(x){
+        x.preventDefault();
+        var a = x.currentTarget;
+        var href=a.getAttribute('href');
+        var element = document.querySelectorAll(href);
+        var top = element[0].offsetTop;
+        window.scrollTo(0,top-80)
+      }
+    }
     </script>
   </body>
 </html>
