@@ -52,7 +52,7 @@
       <div class="mask"></div>
     </div>
     <main>
-      <div id='siteAbout' class="userCard">
+      <div data-x id='siteAbout' class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
             <img src="./img/avatar.jpg" alt="头像">
@@ -103,7 +103,7 @@
       </p>
 
     </main>
-    <section id='siteSkills' class="skills">
+    <section  data-x  id='siteSkills' class="skills">
       <h2>技能</h2>
       <ol class="clearfix">
         <li>
@@ -145,7 +145,7 @@
       </ol>
     </section>
     <section>
-      <section id='siteWorks' class="portfolio">
+      <section  data-x  id='siteWorks' class="portfolio">
         <h2>作品集</h2>
         <nav>
           <ol class="clearfix">
@@ -181,12 +181,25 @@
         </div>
       </section>
     </section>
+
+    <!-- tween js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
     <script>
       //加载动画
       setTimeout(function(){
         siteWelcome.classList.remove('active')
       },1000)
-      //鼠标向下滚动时顶部导航栏发生变化
+      //鼠标向下滚动时顶部导航栏发生变化,且给每一块滚动时增加动画
+
+      var specialTags = document.querySelectorAll('[data-x]');
+      for(let i=0;i<specialTags.length;i++){
+        specialTags[i].classList.add('offset')
+      }
+      
+      setTimeout(function(){
+        yyy()
+      },1000);
+
       window.onscroll = function(xxx){
         if (window.scrollY > 0){
           topNavbar.classList.add('sticky')
@@ -194,8 +207,30 @@
         else{
           topNavbar.classList.remove('sticky')
         }
+        navbarBottom();
       }
     
+      function navbarBottom(){
+        let specialTags = document.querySelectorAll('[data-x]')
+        let minIndex = 0;
+        for (let i = 1; i <specialTags.length;i++){
+          if(Math.abs(specialTags[i].offsetTop-window.scrollY) < Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
+              minIndex = i
+          }
+          console.log(minIndex)
+          specialTags[minIndex].classList.remove('offset');
+          let id = specialTags[minIndex].id;
+          let a = document.querySelector('a[href="#' + id + '"]')
+          let li = a.parentNode;
+          let brothersAndMe = li.parentNode.children;
+          for (let i=0;i<brothersAndMe.length;i++){
+            brothersAndMe[i].classList.remove('highlight')
+          }
+          li.classList.add('highlight')
+        }
+      }
+
+
     //子菜单
       var liTags = document.getElementsByClassName('menuTigger')
       for (var i=0;i<liTags.length;i++){
@@ -213,6 +248,13 @@
 
     //点击跳转到指定的位置
     var aTags = document.querySelectorAll('div.navbar.clearfix > ul > li > a');
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
+
+
     for(var i=0; i<aTags.length;i++){
       aTags[i].onclick = function(x){
         x.preventDefault();
@@ -220,7 +262,21 @@
         var href=a.getAttribute('href');
         var element = document.querySelectorAll(href);
         var top = element[0].offsetTop;
-        window.scrollTo(0,top-80)
+
+    //缓慢跳转动画
+    var currentTop = window.scrollY
+    var targetTop = top-50;
+    var s = targetTop - currentTop;
+    var coords = {y:currentTop};
+    var t = Math.abs((s/100)*300);
+    if (t>500){t=500}
+    var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+            .to({ y: targetTop }, t) // Move to (300, 200) in 1 second.
+            .easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
+            .onUpdate(function() { 
+              window.scroll(0,coords.y)
+            })
+            .start();
       }
     }
     </script>
