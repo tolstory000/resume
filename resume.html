@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>resume</title>
+  <link rel="stylesheet" href="./loading.css">
+  <script src="./js/iconfont.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <div id='siteWelcome' class="site-welcome active">
+    <div class="loading"></div>
+  </div>
+	<div id='topNavbar' class="navbar clearfix ">
+		<a href="#" class="logo">
+			<span class="RS">RS</span><span class="card">card</span>
+		</a>
+		<ul>
+			<li><a href="#siteAbout">关于</a></li>
+			<li><a href="#siteSkills">技能</a></li>
+      <li class='menuTigger'>
+        <a href="#siteWorks">作品</a>
+        <ul class='subMenu'>
+          <li>作品1</li>
+          <li>作品2</li>
+          <li>作品3</li>
+        </ul>
+      </li>
+      <li class='menuTigger'>
+        <a href="#siteBlog">博客</a>
+        <ul class='subMenu'>
+            <li>博客1</li>
+            <li>博客2</li>
+            <li>博客3</li>
+        </ul>
+      </li>
+			<li><a href="#siteClendar">日历</a></li>
+			<li><a href="#siteContact">联系方式</a></li>
+			<li><a href="#siteOthers">其他</a></li>
+		</ul>
+    </div>
+    <div class="banner">
+      <div class="mask"></div>
+    </div>
+<main>
+  </div>
+      <div data-x id='siteAbout' class="userCard ">
+        <div class="pictureAndText clearfix">
+          <div class="picture">
+            <img src="./img/avatar.jpg" alt="头像">
+          </div>
+          <div class="text">
+            <div class="profile">
+              <span class="welcome">Hello<span class="tri"></span></span>
+              <h1>Shawn</h1>
+              <p>前端开发工程师</p>
+            <hr/>
+              <dl>
+                <dt>年龄</dt>
+                <dd>25</dd>
+                <dt>所在城市</dt>
+                <dd>上海</dd>
+                <dt>邮箱</dt>
+                <dd>xxxx@qq.com</dd>
+                <dt>手机</dt>
+                <dd>15012345678</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <footer class="media">
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-weibo"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-github"></use>
+              </svg>
+          </a>
+          <a href="#">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-twitter"></use>
+              </svg>
+          </a>
+        </footer>
+      </div>
+      <p class="download-button-wrapper">
+        <a class="button" href="./resume.pdf" target="_blank" download>下载 PDF 简历</a>
+      </p>
+
+      <p class="self-introduction">
+        Shawn
+      </p>
+
+    </main>
+    <section  data-x  id='siteSkills' class="skills">
+      <h2>技能</h2>
+      <ol class="clearfix">
+        <li>
+          <p>HTML 5 &amp; CSS 3</p>
+          <div class="progressBar">
+              <div class="progress" style="width: 50%;"></div>
+            </div>
+        </li>
+        <li>
+            <p>Javascript</p>
+            <div class="progressBar">
+                <div class="progress" style="width: 10%;"></div>
+              </div>
+          </li>
+        <li>
+          <p>Jquery</p>
+          <div class="progressBar">
+              <div class="progress" style="width: 10%;"></div>
+            </div>
+        </li>
+        <li>
+            <p>Vue.js</p>
+            <div class="progressBar">
+                <div class="progress" style="width: 10%;"></div>
+              </div>
+          </li>
+        <li>
+          <p>React.js</p>
+          <div class="progressBar">
+              <div class="progress" style="width: 10%;"></div>
+            </div>
+        </li>
+        <li>
+          <p>Node.js</p>
+            <div class="progressBar">
+                <div class="progress" style="width: 10%;"></div>
+              </div>
+          </li>
+      </ol>
+    </section>
+    <section>
+      <section  data-x  id='siteWorks' class="portfolio">
+        <h2>作品集</h2>    
+        <!-- 插入swiper -->
+        <!-- Slider main container -->
+        <div id="mySlide">
+          <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+            <!-- Slides -->
+            <img src="./screenshot/canvas.jpg" alt="画板" class="swiper-slide">
+            <img src="./screenshot/nav.jpg" alt="导航" class="swiper-slide">
+            <img src="./screenshot/slide.jpg" alt="轮播" class="swiper-slide">
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+           </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+      </section>
+    </section>
+
+    <section id='message'>
+      <h2>留言板</h2>
+      <ul id="messageList"></ul>
+      <form id='postMessage' style="width:700px;margin:50px auto">
+        <label for="name">用户名</label>
+        <input type="text" name="name" id='name'>
+        <label for="comment">评论</label>
+        <input type="text" name="comment" id='comment'>
+        <input type="submit" value="提交">
+      </form>
+    </section>
+
+    <!-- tween js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+    <script src="./js/loading-animation.js"></script>
+    <script src="./js/message.js"></script>
+    <!-- 模块化 -->
+    <script src="./js/init-swiper.js"></script>
+    <script src="./js/auto-slide-up.js"></script>
+    <script src="./js/sticky-topbar.js"></script>
+    <script src="./js/smoothly-transition.js"></script>
+  </body>
+</html>

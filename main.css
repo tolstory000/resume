@@ -37,6 +37,13 @@ ul,ol{
 	list-style: none;
 }
 
+.icon {
+	width: 1em; height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+ }
+
 .navbar{
 	position: fixed;
 	width: 100%;
@@ -295,70 +302,54 @@ ul,ol{
 	  max-width: 940px;
 	  margin:0 auto;
 	  text-align:center;
-  }
-  .portfolio h2{
+	  position: relative;
+	  margin-bottom: 100px;
+	}
+  .portfolio {
 	  margin-top:65px;
   }
-  .portfolio > nav > ol{
-		display: inline-block;
-		margin: 0 auto;
-		vertical-align: top;
-  }
-  .portfolio > nav > ol > li{
-		float: left;
-		margin-left: 40px;
-		cursor: pointer;
-  }
-  .portfolio > nav > ol > li:nth-child(1){
-		margin-left: 0;
-  }
-  .portfolio > nav{
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 32px;
-  }
-  .portfolio > nav .bar{
-		height: 5px;
-		background: white;
-		margin-top: 5px;
-		margin-bottom: 28px;
-		border-radius: 2px;
-  }
-  .portfolio > nav .bar-inner{
-		height: 100%;
-		background: #E6686A;
-		border-radius: 2px;
-		transition: all 0.3s;
-  }
-  .portfolio > nav .bar.state-1 .bar-inner{
-		margin-left: 0;
-		width: 50px;
-  }
-  .portfolio > nav .bar.state-2 .bar-inner{
-		margin-left: 65px;
-		width: 50px;
-  }
-  .portfolio > nav .bar.state-3 .bar-inner{
-		margin-left: 140px;
-		width: 96px;
-  }
-  .portfolio .works{
-		position: relative;
-		height:600px;
-		margin-bottom:100px;
-  }
-  .portfolio .works > .big,section.portfolio .works > .small {
-		position: absolute;
-  }
-  .portfolio .works > .big{
-	  top:0;
-	  left:0;
-  }
-  .portfolio .works > .small.s1{
-		top:0;
-		left:650px;
+
+.portfolio .swiper-container {
+	width: 1000px;
+	height: 600px;
+	margin-top:50px;
+	left: -30px;
 }
-	.portfolio .works > .small.s2{
-		top:310px;
-		left:650px;
+
+.portfolio .swiper-button-prev{
+	width:70px;
+	height:70px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	left:-150px;
+	top:55%;
+}
+
+.portfolio .swiper-button-next{
+	width:70px;
+	height:70px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	right:-150px;
+	top:55%;
+}
+
+/* 留言板 */
+#message {
+	max-width: 800px;
+	margin:0 auto;
+}
+#message > h2{
+	text-align:center;
+	margin-bottom: 30px;
+
+}
+#message > ul>li{
+	border-bottom: 1px solid #DDD;
+	padding:10px;
+}
+#message > ul>li:first-child{
+	border-top:1px solid #DDD;
 }
